@@ -15,7 +15,7 @@ import logo from '../../assets/images/logo.png'
               <h1>React项目: 后台管理系统</h1>
             </header>
             <section className="login-content">
-              <h2>用户登陆</h2>
+              <h2>用户不登陆</h2>
             <Form onSubmit={this.handleSubmit} className="login-form" >
               <Form.Item className='password'>
         
