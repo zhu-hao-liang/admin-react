@@ -2,12 +2,25 @@ import React,{Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import './login.less'
 import logo from '../../assets/images/logo.png'
+import {login} from '../../api/index'
  class Login extends Component {
     handleSubmit=(e) => {
         e.preventDefault();
-        this.props.form.validateFields((err,values) => {//
+        //再次进行统一校验
+        this.props.form.validateFields((err,values) => {
           if(!err) {
            console.log(values);
+           //校验通过的话发送ajax请求
+           const {username, password} = values
+           login(username,password).then(res => {
+              //console.log(res);
+              if(res.status === 0) {
+                 const loginId = res.data._id;//登录成功标志
+                 localStorage.setItem('loginId',loginId)
+                 this.props.history.replace('/')
+
+              }
+           })
           }
         })
         
