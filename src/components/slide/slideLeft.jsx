@@ -14,8 +14,10 @@ export default class App extends Component {
             if(!item.children) {
                 return (
                     <Menu.Item key={item.key}>
-                        <Icon type={item.icon} />
+                       <Link to={item.key}>
+                       <Icon type={item.icon} />
                         <span>{item.title}</span>
+                       </Link>
                     </Menu.Item>
                 )
             }else {
