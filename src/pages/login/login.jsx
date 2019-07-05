@@ -16,7 +16,9 @@ import {login} from '../../api/index'
               //console.log(res);
               if(res.status === 0) {
                  const loginId = res.data._id;//登录成功标志
+                 const {username} = res.data
                  localStorage.setItem('loginId',loginId)
+                 localStorage.setItem('username',username)
                  this.props.history.replace('/')
 
               }

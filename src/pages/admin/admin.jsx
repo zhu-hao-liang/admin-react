@@ -3,6 +3,7 @@ import { Switch, Route, Redirect, } from 'react-router-dom'
 import { Layout } from 'antd'
 import './admin.less'
 import SlideLeft from '../../components/slide/slideLeft'
+import MyHeader from '../../components/header/header'
 import Home from '../../pages/home/home';
 import Category from '../category/category';
 import Product from '../product/product';
@@ -26,7 +27,9 @@ export default class Admin extends Component {
                     <SlideLeft />
                 </Sider>
                 <Layout>
-                    <Header style={{ backgroundColor: 'pink' }}>Header</Header>
+                    <Header style={{ backgroundColor: '#002140',paddingLeft: 0}}>
+                        <MyHeader />
+                    </Header>
                     <Content>
                         <Switch>
                             <Route path='/home' component={Home}></Route>
