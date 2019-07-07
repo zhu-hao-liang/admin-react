@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
 import './login.less'
 import logo from '../../assets/images/logo.png'
 import {login} from '../../api/index'
@@ -19,6 +19,7 @@ import {login} from '../../api/index'
                  const {username} = res.data
                  localStorage.setItem('loginId',loginId)
                  localStorage.setItem('username',username)
+                 message.success('登录成功',1);
                  this.props.history.replace('/')
 
               }
