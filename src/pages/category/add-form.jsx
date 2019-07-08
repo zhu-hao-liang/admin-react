@@ -7,7 +7,7 @@ import {
 } from 'antd'
 
 const Option = Select.Option
- class AddForm extends Component{
+class AddForm extends Component{
    
     render() {
         const { getFieldDecorator } = this.props.form
@@ -17,7 +17,10 @@ const Option = Select.Option
             <Form>
             <Form.Item>
             {getFieldDecorator('parentId',{
-               initialValue: parentId
+               initialValue: parentId,
+               rules: [
+                   { required: true, message: '请选择合适的分类!' }
+               ]
             })(
                   <Select>
                   <Option value="0">一级分类</Option>

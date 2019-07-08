@@ -71,18 +71,25 @@ export default class Category extends Component {
 
     }
     //确认修改
-    updateCategoryOk = async () => {
-        const categoryId = this.categoryId;
-        const categoryName = this.form.getFieldValue('categoryName')
-        const res = await updateCategory(categoryId, categoryName)
-        if (res.status == 0) {
-            // 更新成功之后务必 清除输入框的数据，不然会有bug
-            this.form.resetFields()
-            this.setState({
-                visibleUpdate: false
-            })
-            this.getAllCategory()
-        }
+    updateCategoryOk =  () => {
+        //再次对表单进行规则验证
+        this.form.validateFields( async (err,values) => {
+            if(!err) {
+                const categoryId = this.categoryId;
+                // const categoryName = this.form.getFieldValue('categoryName')
+                const {categoryName} = values;
+                const res = await updateCategory(categoryId, categoryName)
+                if (res.status == 0) {
+                    // 更新成功之后务必 清除输入框的数据，不然会有bug
+                    this.form.resetFields()
+                    this.setState({
+                        visibleUpdate: false
+                    })
+                    this.getAllCategory()
+                }
+            }
+        })
+      
     }
     //添加分类
     showAdd = () => {
