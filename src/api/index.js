@@ -7,3 +7,7 @@ export const getCategorys = (parentId) => ajax('/manage/category/list', {parentI
 export const addCategory = (categoryName, parentId) => ajax('/manage/category/add', {categoryName, parentId}, 'POST')
 // 更新分类
 export const updateCategory = (categoryId, categoryName) => ajax('/manage/category/update', {categoryId, categoryName}, 'POST')
+// 获取商品分页列表
+export const getProducts = (pageNum, pageSize) => ajax('/manage/product/list', {pageNum, pageSize})
+// 更新商品的状态(上架/下架)
+export const reqUpdateStatus = (productId, status) => ajax('/manage/product/updateStatus', {productId, status}, 'POST')

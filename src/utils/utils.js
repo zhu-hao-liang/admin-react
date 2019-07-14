@@ -8,3 +8,4 @@ export function formatTime(date) {
    let s = date.getSeconds() < 10 ? '0'+ (date.getSeconds()) : date.getSeconds();
     return Y+M+D+h+m+s;
 }
+export const BASE_IMG_URL = 'http://localhost:5000/upload/' // 上传图片的基础路径
