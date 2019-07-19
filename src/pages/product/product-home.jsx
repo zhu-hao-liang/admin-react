@@ -48,7 +48,7 @@ export default class Home extends Component {
             </div>
         )
         const extra = (
-            <Button type="primary" icon="plus">添加商品</Button>
+            <Button type="primary" icon="plus" onClick={() => this.props.history.push('/product/add')}>添加商品</Button>
         )
         const columns = [
             {
@@ -96,7 +96,7 @@ export default class Home extends Component {
                     <span>
                     {/*将product对象使用state传递给目标路由组件*/}
                     <LinkButton onClick={() => this.props.history.push('/product/detail', {product})}>详情</LinkButton>
-                    <LinkButton>修改</LinkButton>
+                    <LinkButton onClick={() => this.props.history.push('/product/add', {product})}>修改</LinkButton>
                   </span>
                 ),
             },
